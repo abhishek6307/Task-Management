@@ -116,6 +116,21 @@ Before you begin, ensure you have met the following requirements:
 
    Your application should now be running at `http://localhost:8000`.
 
+8. **Login credentials**:
+
+  User Login
+
+   ```bash
+   user@example.com
+   password
+   ```
+  Admin Login
+
+   ```bash
+   admin@example.com
+   password
+   ```
+
 ### Configuration
 
 1. **Setting Up Roles**:

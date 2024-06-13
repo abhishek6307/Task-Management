@@ -7,11 +7,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 @auth
+                    @if(auth()->user()->role == 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+                        </li>
+                    @endif
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('tasks.index') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('tasks.create') }}">Add Task</a>
+                        <a class="nav-link" href="{{ route('tasks.index') }}">Tasks</a>
                     </li>
                     <li class="nav-item">
                         <form method="POST" action="{{ route('logout') }}" class="d-inline">
