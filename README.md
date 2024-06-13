@@ -1,64 +1,176 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Task Management Application
 
-## About Laravel
+This application is a Task Management System built using Laravel. It allows users to manage tasks with various features like task priority, status updates, due dates, and role-based access control. The system also includes a responsive design with search and filter capabilities.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. **Role-Based Access Control (RBAC)**:
+   - **Admin**: Can view, edit, and delete all tasks.
+   - **Customer**: Can view, create, edit, and delete only their own tasks. Cannot access the admin dashboard.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+2. **Task Management**:
+   - Create, view, edit, and delete tasks.
+   - Set task priority (High, Medium, Low).
+   - Set task status (Pending, Completed).
+   - Add due dates to tasks.
+   - Search and filter tasks by title and user.
 
-## Learning Laravel
+3. **Dashboard**:
+   - Summarize tasks (total tasks, pending, completed).
+   - Filter tasks by user.
+   - View all tasks with user details.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+4. **UI/UX Enhancements**:
+   - Responsive design using Bootstrap.
+   - Display task status and priority with badges.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+5. **Pagination**:
+   - Paginate tasks for easier navigation.
 
-## Laravel Sponsors
+## Getting Started
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Prerequisites
 
-### Premium Partners
+Before you begin, ensure you have met the following requirements:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- **Software**:
+  - XAMPP (for local development)
+  - Composer
+  - Node.js and npm
+  - Laravel >= 8.0
 
-## Contributing
+- **System Requirements**:
+  - PHP >= 7.4
+  - A database (MySQL)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Installation
 
-## Code of Conduct
+1. **Set Up XAMPP**:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+   Download and install XAMPP from [Apache Friends](https://www.apachefriends.org/index.html). Start the Apache and MySQL services from the XAMPP Control Panel.
 
-## Security Vulnerabilities
+2. **Clone the Repository**:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+   ```bash
+   git clone https://github.com/your-username/task-management-app.git
+   cd task-management-app
+   ```
 
-## License
+3. **Install Dependencies**:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+   ```bash
+   composer install
+   npm install
+   npm run dev
+   ```
+
+4. **Environment Setup**:
+
+   Copy the `.env.example` file to `.env` and configure your environment settings.
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   Update the `.env` file with your database details:
+
+   ```ini
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=task_management
+   DB_USERNAME=root
+   DB_PASSWORD=your_password
+   ```
+
+   > **Note**: Replace `your_password` with your MySQL root password. If no password is set for the MySQL root user, leave it blank.
+
+5. **Create the Database**:
+
+   Open your browser and go to `http://localhost/phpmyadmin`. Create a new database named `task_management`.
+
+6. **Migrate the Database**:
+
+   Run the migrations to set up the database tables.
+
+   ```bash
+   php artisan migrate
+   ```
+
+7. **Seed the Database**:
+
+   Optionally, seed the database with default roles and an admin user:
+
+   ```bash
+   php artisan db:seed
+   ```
+
+8. **Running the Application**:
+
+   Start the local development server:
+
+   ```bash
+   php artisan serve
+   ```
+
+   Your application should now be running at `http://localhost:8000`.
+
+### Configuration
+
+1. **Setting Up Roles**:
+
+   Add roles (admin, customer) to your users. You can do this manually through the database or by using a seeder.
+
+### Application Structure
+
+- **Models**: Define your data structure and relationships.
+  - `Task.php`
+  - `User.php` (with role management)
+
+- **Controllers**: Handle the request logic.
+  - `TaskController.php`
+  - `HomeController.php`
+
+- **Views**: Blade templates for your application UI.
+  - `resources/views/tasks` (index, create, edit, show)
+  - `resources/views/dashboard.blade.php`
+
+- **Migrations**: Database table definitions and relationships.
+  - `2023_06_12_000000_create_tasks_table.php`
+  - `2023_06_12_000001_add_user_id_to_tasks_table.php`
+  - `2023_06_12_000002_add_role_to_users_table.php`
+
+### Key Functionalities
+
+1. **User Authentication**:
+   - Register, login, and manage sessions.
+   - Redirect users to their respective dashboards based on their roles.
+
+2. **Task CRUD Operations**:
+   - Create new tasks with title, description, status, priority, and due date.
+   - View a list of tasks with filtering and search capabilities.
+   - Edit existing tasks.
+   - Delete tasks with confirmation.
+   - Display tasks with badges indicating their status and priority.
+
+3. **Role-Based Access**:
+   - Admins have full control over all tasks.
+   - Customers can only manage their own tasks.
+   - Only admins can access the dashboard route.
+
+4. **Dashboard Summary**:
+   - Display total, pending, and completed tasks.
+   - Include filters to view tasks by user.
+
+5. **Responsive Design**:
+   - Use Bootstrap to ensure the application is mobile-friendly and accessible on various devices.
+
+### License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### Acknowledgements
+
+- Laravel Framework
+- Bootstrap for responsive design
